@@ -2,11 +2,11 @@ interface-
 	|-- scenes
 	
 		|-- list 
-			|-- method:	get
-			|-- url:		/s/all_scenes
-			|-- params:	nil
-			|-- result:	all scenes list in xml format with title and id   
-			|-- test:		/scenes_interface_test.html
+			|-- method: get
+			|-- url:    /s/all_scenes
+			|-- params: nil
+			|-- result: all scenes list in xml format with title and id   
+			|-- test:   /scenes_interface_test.html
 			
 		|-- change
 			|-- method:	post
