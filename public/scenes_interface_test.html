@@ -1,0 +1,74 @@
+<div>
+	
+	<p>
+		<b>All Scenes with id and title</b>
+		<p><a href='/s/all_scenes'>Get all Scenes</a></p>
+	</p>
+
+</div>
+<hr/>
+
+<div>
+	<p>
+		<b>Add a new Scene</b>
+		<p>
+			<form action='/s/scene/add' method='post'>
+				<p><input type='text' name='title'/></p>
+				<p><input type='submit' value='Add'/></p>
+			</form>
+		</p>
+	</p>
+</div>
+<hr>
+
+<div>
+	<p>
+		<b>Update a Scene's title by it's ID</b>
+		<p>
+			ID: <input type='text' id='update_id'/> Title: <input type='text' id='update_title'><a href='#' onclick='do_action("update", ".u")'>Update</a>
+		</p>
+	</p>
+</div>
+<hr/>
+
+<div>
+	<p>
+		<b>Remove a Scene</b>
+		<p>
+			ID: <input type='text' id='remove_id'/><input type='hidden' id='remove_title'><a href='#' onclick='do_action("remove", ".r")'>Remove</a>
+		</p>
+	</p>
+</div>
+<hr>
+
+<script type="text/javascript">
+	
+	function do_action(action, path) {
+		var id = document.getElementById(action+"_id").value;
+		var title = document.getElementById(action+"_title").value;
+		var data = {'id' : id, 'title' : title};
+		post_url(path, id, data);
+	}
+	
+	function post_url(path, params, data, method) {
+		method = method || 'post';
+		var url = "http://" + window.location.host + "/s/scene/" + params + path;
+		var form = document.createElement("form");
+		form.setAttribute("method", method);
+		form.setAttribute("action", url);
+		
+		for(var key in data) {
+			var hideField = document.createElement("input");
+			hideField.setAttribute("type", "hidden");
+			hideField.setAttribute("name", key);
+			hideField.setAttribute("value", data[key])
+			form.appendChild(hideField);
+		}
+		document.body.appendChild(form);
+		form.submit();
+	}
+	
+</script>
+
+
+

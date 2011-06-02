@@ -1,0 +1,80 @@
+<div>
+	
+	<p>
+		<b>All Scenes with id and title</b>
+		<p><a href='/s/all_scenes'>Get all Scenes</a></p>
+	</p>
+
+</div>
+<hr/>
+
+<div>
+	<p>
+		<b>Add a new Scene</b>
+		<p>
+			<%= form_for :scene, :url => add_interface_scenes_path do |f| %>
+				<p>Title: <%= f.text_field :title %></p>
+				<p><%= f.submit 'Add' %></p>
+			<% end %>
+		</p>
+	</p>
+</div>
+<hr>
+
+<div>
+	<p>
+		<b>Update a Scene's title by it's ID</b>
+		<p>
+			<%= form_tag '/s/scene/change' do %>
+				<p>ID: <input type='text' name='id' id='update_id'/> New Title: <input type='text' name='title' id='update_title'/> <input type='submit' value='Update'/></p>
+			<% end %>
+		</p>
+	</p>
+</div>
+<hr/>
+
+<div>
+	<p>
+		<b>Remove a Scene</b>
+		<p>
+			<%= form_tag '/s/scene/remove' do %>
+				<p><input type='text' name='id'/></p>
+				<p><%= submit_tag 'Remove' %></p>
+			<% end %>
+		</p>
+	</p>
+</div>
+<hr>
+
+<div>
+	<p>
+		<b>Update a Scene</b>
+		
+	</p>
+</div>
+<script type="text/javascript">
+	
+	
+	
+	function post_url(path, params, data, method) {
+		method = method || 'post';
+		var url = "http://" + window.location.host + "/s/scene/" + params + "/" + path;
+		var form = document.createElement("form");
+		form.setAttribute("method", method);
+		form.setAttribute("action", url);
+		
+		for(var key in data) {
+			var hideField = document.createElement("input");
+			hideField.setAttribute("type", "hidden");
+			hideField.setAttribute("name", key);
+			hideField.setAttribute("value", data[key])
+			form.appendChild(hideField);
+		}
+		document.body.appendChild(form);
+		form.submit();
+	}
+	
+</script>
+
+
+

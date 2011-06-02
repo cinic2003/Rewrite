@@ -1,0 +1,31 @@
+interface-
+	|-- scenes
+	
+		|-- list 
+			|-- method:	get
+			|-- url: 	 	/s/all_scenes
+			|-- params:	nil
+			|-- result:	all scenes list in xml format with title and id   
+			|-- test:	 	/scenes_interface_test.html
+			
+		|-- change
+			|-- method:	post
+			|-- url: 	 	/s/scene/:id.u
+			|-- params:	id title
+			|-- result:	the scene after updated
+			|-- test:	 	/scenes_interface_test.html
+			
+		|-- remove       
+			|-- method:	post
+			|-- url: 	 	/s/scene/:id.r
+			|-- params:	id
+			|-- result:	the scene has removed
+			|-- test:	 	/scenes_interface_test.html
+			
+		|-- add
+			|-- method:	post
+			|-- url: 	 	/s/scene/add
+			|-- params:	id title
+			|-- result:	the new scene created
+			|-- test:	 	/scenes_interface_test.html
+ 
